@@ -1,0 +1,471 @@
+@page
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assaf Saliba - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            border: 2px solid white;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        .nav-list a:hover,
+        .nav-list a.active {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+        }
+
+        /* Sections */
+        section {
+            padding: 3rem 0;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        /* About */
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+
+        /* Experience */
+        .experience-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .job {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .job h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .job h4 {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .job ul {
+            margin-left: 1.2rem;
+        }
+
+        .job li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .project p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+
+        .tech-tag {
+            background: #f0f0f0;
+            color: #667eea;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 5px;
+            margin: 2rem 0;
+        }
+
+        .contact-info div {
+            margin-bottom: 1rem;
+        }
+
+        .contact-info strong {
+            color: #667eea;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .nav-list {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .about-text {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Assaf Saliba</h1>
+            <p class="tagline">Software Developer & .NET Specialist</p>
+            <a href="javascript:void(0)" class="cta-button" onclick="scrollToContact()">Get In Touch</a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-text">
+                <p>Hello! I'm Assaf Saliba, a passionate software developer based in Jeddah, Saudi Arabia. With over 2 years of professional experience at RSG (Rock Solid Group), I specialize in building comprehensive business solutions using .NET technologies.</p>
+                <p>I'm the lead developer on "Momentum," a sophisticated sales management system that handles the complete sales lifecycle. My expertise spans from frontend development with ASP.NET and DevExpress to backend systems with .NET Core, along with AI-powered analytics and predictive modeling.</p>
+                <p>I hold a Bachelor's degree in Computer Science from Lebanese International University and am fluent in Arabic, English, and French.</p>
+                <div class="skills">
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">ASP.NET</span>
+                    <span class="skill-tag">.NET Core</span>
+                    <span class="skill-tag">ASP.NET MVC</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">jQuery UI</span>
+                    <span class="skill-tag">DevExpress</span>
+                    <span class="skill-tag">SQL Server</span>
+                    <span class="skill-tag">SSIS</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Azure DevOps</span>
+                    <span class="skill-tag">Power BI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-list">
+                <article class="job">
+                    <h3>Software Developer</h3>
+                    <h4>RSG (Rock Solid Group) • July 2023 - Present • Jeddah, Saudi Arabia</h4>
+                    <p>Lead developer on "Momentum," a comprehensive sales management system built with .NET technologies. Key achievements include:</p>
+                    <ul>
+                        <li>Developed complete sales lifecycle management from business card collection to project completion</li>
+                        <li>Implemented AI-powered prediction models for win/loss probability forecasting</li>
+                        <li>Created automated workflow system supporting 4 sales stages with progression tracking</li>
+                        <li>Built over 10 comprehensive reports for sales performance analysis</li>
+                        <li>Integrated financial tracking including project values and cost management</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <h3>Frontend Developer</h3>
+                    <h4>SoftMachine • September 2022 - May 2023 • Beirut, Lebanon</h4>
+                    <p>Developed user interfaces using ASP.NET and DevExpress components. Gained hands-on experience in frontend development methodologies and collaborated with development teams to deliver responsive web applications.</p>
+                </article>
+
+                <article class="job">
+                    <h3>Information Technology Intern</h3>
+                    <h4>Dar • July 2022 - August 2022 • Lebanon</h4>
+                    <p>Built and configured network infrastructure including security hardening and system optimization. Worked with SQL Server Integration Services (SSIS) and Microsoft Power BI for data management and visualization.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <article class="project">
+                    <h3>Momentum Sales System</h3>
+                    <p>Comprehensive sales management platform with AI-powered analytics, workflow automation, and predictive modeling. This is the main project I work on at RSG, handling the complete sales lifecycle from lead generation to project completion.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">.NET Core</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">AI/ML</span>
+                        <span class="tech-tag">DevExpress</span>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <h3>File Manager System</h3>
+                    <p>A small but functional file management application that allows users to organize, upload, and manage files efficiently. Built with clean architecture and user-friendly interface.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">ASP.NET</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <h3>Company Notifier System</h3>
+                    <p>Automated email notification system for company events including employee birthdays, welcome messages for new hires, and work anniversary celebrations. Helps maintain company culture and employee engagement.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">.NET</span>
+                        <span class="tech-tag">Email APIs</span>
+                        <span class="tech-tag">SQL Server</span>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <h3>Enterprise Web Applications</h3>
+                    <p>Responsive web applications built with ASP.NET and DevExpress components during my internship at SoftMachine. Focused on creating intuitive user interfaces and smooth user experiences.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ASP.NET</span>
+                        <span class="tech-tag">DevExpress</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">CSS3</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p>I'm always interested in new opportunities and exciting projects. Let's connect!</p>
+                
+                <div class="contact-info">
+                    <div><strong>Email:</strong> assafsaliba7@gmail.com</div>
+                    <div><strong>Phone:</strong> +961 (71) 686 372 | +966 536 095 465</div>
+                    <div><strong>Location:</strong> Jeddah, Saudi Arabia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Assaf Saliba. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll to contact function
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-list a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('load', updateActiveNav);
+    </script>
+</body>
+</html>
